@@ -20,13 +20,14 @@ def generate_launch_description():
     linear_launch_arg = DeclareLaunchArgument(
         'linear_max', default_value=TextSubstitution(text='0.2') #[m/s]
     )
-    linear_launch_arg = DeclareLaunchArgument(
+    angular_launch_arg = DeclareLaunchArgument(
         'angular_max', default_value=TextSubstitution(text='0.7') #[rad/s]
     )
 
     return LaunchDescription([
         port_launch_arg,
         linear_launch_arg,
+        angular_launch_arg,
         Node(
             package='udp_joycon',
             executable='joy_node.py',
